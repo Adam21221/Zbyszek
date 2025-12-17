@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zbigniew Dróżdż — Don Kichot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0d0d0d;
+            --white: #fafafa;
+            --accent: #ff3c00;
+            --gray: #888;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Grid layout */
+        .page {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        /* Left side - Photo */
+        .photo-side {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+            transition: filter 0.6s ease;
+        }
+
+        .photo-side:hover img {
+            filter: grayscale(0%) contrast(1.05);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, var(--black), transparent);
+            pointer-events: none;
+        }
+
+        .photo-accent {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* Right side - Content */
+        .content-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
+        }
+
+        .content-inner {
+            max-width: 500px;
+        }
+
+        /* Typography */
+        .label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 span {
+            font-style: italic;
+            color: var(--gray);
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 3rem;
+        }
+
+        /* Countdown */
+        .countdown-section {
+            margin-bottom: 3rem;
+        }
+
+        .countdown-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .countdown-item {
+            text-align: left;
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--white);
+        }
+
+        .countdown-unit {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+
+        /* Buttons */
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.75rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #ff5a2b;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Contact */
+        .contact {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-email {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--accent);
+        }
+
+        /* Vertical text */
+        .vertical-text {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            transform-origin: center;
+            font-size: 0.65rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .page {
+                grid-template-columns: 1fr;
+                grid-template-rows: 50vh auto;
+            }
+
+            .content-side {
+                padding: 3rem 2rem;
+            }
+
+            .vertical-text {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .countdown {
+                gap: 1.5rem;
+            }
+
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .countdown {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+            }
+
+            .countdown-item {
+                text-align: center;
+            }
+
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-inner > * {
+            animation: fadeUp 0.8s ease-out backwards;
+        }
+
+        .label { animation-delay: 0.1s; }
+        h1 { animation-delay: 0.2s; }
+        .subtitle { animation-delay: 0.3s; }
+        .countdown-section { animation-delay: 0.4s; }
+        .actions { animation-delay: 0.5s; }
+        .contact { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="photo-side">
+            <img src="drozdz_zbyszek.jpeg" alt="Zbigniew Dróżdż">
+            <div class="photo-overlay"></div>
+            <div class="photo-accent"></div>
+        </div>
+
+        <div class="content-side">
+            <div class="content-inner">
+                <p class="label">Artysta · Muzyk</p>
+                
+                <h1>Zbigniew<br><span>Dróżdż</span></h1>
+                <p class="subtitle">Don Kichot</p>
+
+                <div class="countdown-section">
+                    <p class="countdown-label">Konkurs trwa do 6 stycznia 2025</p>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-unit">dni</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-unit">godz</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-unit">min</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-unit">sek</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <a href="regulamin.pdf" target="_blank" class="btn btn-primary">
+                        Regulamin konkursu →
+                    </a>
+                </div>
+
+                <div class="contact">
+                    <p class="contact-label">Kontakt</p>
+                    <a href="mailto:zbyszekdonkichot@gmail.com" class="contact-email">
+                        zbyszekdonkichot@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <span class="vertical-text">Muzyka · Pasja · Sztuka</span>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const end = new Date('2025-01-06T23:59:59').getTime();
+            const now = Date.now();
+            const diff = end - now;
+
+            if (diff < 0) {
+                document.getElementById('countdown').innerHTML = 
+                    '<p style="font-size: 1.5rem; color: var(--accent);">Konkurs zakończony</p>';
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = d;
+            document.getElementById('hours').textContent = h.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = s.toString().padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
