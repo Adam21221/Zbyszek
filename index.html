@@ -237,15 +237,19 @@
             white-space: nowrap;
         }
 
-        /* Mobile */
+        /* Tablet */
         @media (max-width: 900px) {
             .page {
                 grid-template-columns: 1fr;
-                grid-template-rows: 50vh auto;
+                grid-template-rows: 45vh auto;
+            }
+
+            .photo-side img {
+                filter: grayscale(0%) contrast(1.05);
             }
 
             .content-side {
-                padding: 3rem 2rem;
+                padding: 2.5rem 2rem 3rem;
             }
 
             .vertical-text {
@@ -253,7 +257,11 @@
             }
 
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+
+            .subtitle {
+                margin-bottom: 2rem;
             }
 
             .countdown {
@@ -261,15 +269,60 @@
             }
 
             .countdown-number {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+
+            .countdown-section {
+                margin-bottom: 2rem;
+            }
+
+            .actions {
+                margin-bottom: 2rem;
             }
         }
 
-        @media (max-width: 500px) {
+        /* Mobile */
+        @media (max-width: 600px) {
+            .page {
+                grid-template-rows: 40vh auto;
+            }
+
+            .photo-accent {
+                top: 1rem;
+                left: 1rem;
+                width: 50px;
+            }
+
+            .content-side {
+                padding: 2rem 1.5rem 2.5rem;
+            }
+
+            .label {
+                font-size: 0.65rem;
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+
             .countdown {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                gap: 0.5rem;
+                gap: 0.75rem;
+                background: rgba(255,255,255,0.03);
+                padding: 1.25rem 1rem;
+                border-radius: 8px;
+                border: 1px solid rgba(255,255,255,0.06);
             }
 
             .countdown-item {
@@ -277,7 +330,12 @@
             }
 
             .countdown-number {
-                font-size: 1.8rem;
+                font-size: 1.75rem;
+            }
+
+            .countdown-unit {
+                font-size: 0.6rem;
+                margin-top: 0.15rem;
             }
 
             .actions {
@@ -286,6 +344,32 @@
 
             .btn {
                 justify-content: center;
+                padding: 1.1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .contact {
+                padding-top: 1.5rem;
+            }
+
+            .contact-email {
+                font-size: 0.95rem;
+                word-break: break-all;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 380px) {
+            .page {
+                grid-template-rows: 35vh auto;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
             }
         }
 
@@ -325,7 +409,7 @@
             <div class="content-inner">
                 <p class="label">Artysta · Muzyk</p>
                 
-                <h1>Zbigniew<br><span>Dróżdż</span></h1>
+                <h1><span>Zbigniew</span><br>Dróżdż</h1>
                 <p class="subtitle">Don Kichot</p>
 
                 <div class="countdown-section">
