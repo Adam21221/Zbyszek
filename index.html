@@ -102,7 +102,7 @@
         }
 
         .content-inner {
-            max-width: 500px;
+            max-width: 420px;
         }
 
         /* Typography */
@@ -412,8 +412,126 @@
         h1 { animation-delay: 0.2s; }
         .subtitle { animation-delay: 0.3s; }
         .countdown-section { animation-delay: 0.4s; }
-        .actions { animation-delay: 0.5s; }
-        .contact { animation-delay: 0.6s; }
+        .audio-player { animation-delay: 0.5s; }
+        .actions { animation-delay: 0.6s; }
+        .contact { animation-delay: 0.7s; }
+
+        /* Audio Player */
+        .audio-player {
+            margin-bottom: 2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 1rem;
+            max-width: 320px;
+        }
+
+        .player-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .play-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .play-btn:hover {
+            background: #ff5a2b;
+            transform: scale(1.05);
+        }
+
+        .play-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--white);
+            margin-left: 3px;
+        }
+
+        .play-btn.playing svg {
+            margin-left: 0;
+        }
+
+        .track-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .track-title {
+            font-family: 'Cormorant', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.15rem;
+        }
+
+        .track-artist {
+            font-size: 0.7rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            border-radius: 2px;
+            transition: width 0.1s linear;
+        }
+
+        .time {
+            font-size: 0.7rem;
+            color: var(--gray);
+            font-variant-numeric: tabular-nums;
+            min-width: 32px;
+        }
+
+        @media (max-width: 600px) {
+            .audio-player {
+                padding: 1rem;
+            }
+
+            .play-btn {
+                width: 44px;
+                height: 44px;
+            }
+
+            .play-btn svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .track-title {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -451,6 +569,29 @@
                             <div class="countdown-unit">sek</div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Audio Player -->
+                <div class="audio-player">
+                    <div class="player-header">
+                        <button class="play-btn" id="playBtn" aria-label="Odtwórz">
+                            <svg id="playIcon" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                        <div class="track-info">
+                            <div class="track-title">Don Kichot</div>
+                            <div class="track-artist">Demo · 30 sek</div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <span class="time" id="currentTime">0:00</span>
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span class="time" id="duration">0:00</span>
+                    </div>
+                    <audio id="audio" src="zbyszek_demo.mp3" preload="metadata"></audio>
                 </div>
 
                 <div class="actions">
@@ -496,6 +637,59 @@
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        // Audio Player
+        const audio = document.getElementById('audio');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+
+        const playPath = 'M8 5v14l11-7z';
+        const pausePath = 'M6 19h4V5H6v14zm8-14v14h4V5h-4z';
+
+        function formatTime(sec) {
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return m + ':' + s.toString().padStart(2, '0');
+        }
+
+        audio.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const pct = (audio.currentTime / audio.duration) * 100;
+            progressFill.style.width = pct + '%';
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+        });
+
+        audio.addEventListener('ended', () => {
+            playIcon.innerHTML = '<path d="' + playPath + '"/>';
+            playBtn.classList.remove('playing');
+            progressFill.style.width = '0%';
+            currentTimeEl.textContent = '0:00';
+        });
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playIcon.innerHTML = '<path d="' + pausePath + '"/>';
+                playBtn.classList.add('playing');
+            } else {
+                audio.pause();
+                playIcon.innerHTML = '<path d="' + playPath + '"/>';
+                playBtn.classList.remove('playing');
+            }
+        });
+
+        progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const pct = (e.clientX - rect.left) / rect.width;
+            audio.currentTime = pct * audio.duration;
+        });
     </script>
 </body>
 </html>
