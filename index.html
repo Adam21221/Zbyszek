@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zbyszek Dróżdż — Don Kichot</title>
+    <title>Zbyszek Dróżdż — COŚ o miłości</title>
     
     <!-- Meta tagi -->
-    <meta name="description" content="Zbyszek Dróżdż - artysta, muzyk. Don Kichot. Konkurs trwa do 6 stycznia 2026.">
+    <meta name="description" content="Zbyszek Dróżdż - artysta, muzyk. Nowy singiel COŚ o miłości. Premiera 23 kwietnia 2026.">
     <meta name="author" content="Zbyszek Dróżdż">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zbyszekdrozdz.pl/">
-    <meta property="og:title" content="Zbyszek Dróżdż — Don Kichot">
-    <meta property="og:description" content="Artysta, muzyk. Konkurs trwa do 6 stycznia 2026.">
-    <meta property="og:image" content="https://zbyszekdrozdz.pl/drozdz_zbyszek.jpeg">
+    <meta property="og:title" content="Zbyszek Dróżdż — COŚ o miłości">
+    <meta property="og:description" content="Nowy singiel. Premiera 23 kwietnia 2026.">
+    <meta property="og:image" content="https://zbyszekdrozdz.pl/WhatsApp Image 2026-03-30 at 17.04.12.jpeg">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://zbyszekdrozdz.pl/">
-    <meta name="twitter:title" content="Zbyszek Dróżdż — Don Kichot">
-    <meta name="twitter:description" content="Artysta, muzyk. Konkurs trwa do 6 stycznia 2026.">
-    <meta name="twitter:image" content="https://zbyszekdrozdz.pl/drozdz_zbyszek.jpeg">
+    <meta name="twitter:title" content="Zbyszek Dróżdż — COŚ o miłości">
+    <meta name="twitter:description" content="Nowy singiel. Premiera 23 kwietnia 2026.">
+    <meta name="twitter:image" content="https://zbyszekdrozdz.pl/WhatsApp Image 2026-03-30 at 17.04.12.jpeg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
         :root {
             --black: #0d0d0d;
             --white: #fafafa;
-            --accent: #ff3c00;
+            --accent: #f3414f;
             --gray: #888;
         }
 
@@ -58,19 +58,18 @@
         /* Left side - Photo */
         .photo-side {
             position: relative;
-            overflow: hidden;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .photo-side img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) contrast(1.1);
-            transition: filter 0.6s ease;
-        }
-
-        .photo-side:hover img {
-            filter: grayscale(0%) contrast(1.05);
+            object-fit: contain;
+            object-position: center;
+            display: block;
         }
 
         .photo-overlay {
@@ -260,11 +259,12 @@
         @media (max-width: 900px) {
             .page {
                 grid-template-columns: 1fr;
-                grid-template-rows: 45vh auto;
+                grid-template-rows: auto auto;
             }
 
             .photo-side img {
-                filter: grayscale(0%) contrast(1.05);
+                height: auto;
+                max-height: 80vw;
             }
 
             .content-side {
@@ -302,8 +302,8 @@
 
         /* Mobile */
         @media (max-width: 600px) {
-            .page {
-                grid-template-rows: 40vh auto;
+            .photo-side img {
+                max-height: 100vw;
             }
 
             .photo-accent {
@@ -379,10 +379,6 @@
 
         /* Small phones */
         @media (max-width: 380px) {
-            .page {
-                grid-template-rows: 35vh auto;
-            }
-
             h1 {
                 font-size: 1.9rem;
             }
@@ -412,145 +408,86 @@
         h1 { animation-delay: 0.2s; }
         .subtitle { animation-delay: 0.3s; }
         .countdown-section { animation-delay: 0.4s; }
-        .audio-player { animation-delay: 0.5s; }
-        .actions { animation-delay: 0.6s; }
-        .contact { animation-delay: 0.7s; }
+        .social-links { animation-delay: 0.5s; }
+        .contact { animation-delay: 0.6s; }
 
-        /* Audio Player */
-        .audio-player {
-            margin-bottom: 2rem;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 10px;
-            padding: 1rem;
-            max-width: 320px;
+        /* Pulse animation on seconds */
+        @keyframes pulse {
+            0%   { transform: scale(1); }
+            30%  { transform: scale(1.12); color: var(--accent); }
+            100% { transform: scale(1); }
         }
 
-        .player-header {
+        .countdown-number.pulse {
+            animation: pulse 0.4s ease-out;
+        }
+
+        /* Social links */
+        .social-links {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 2.5rem;
         }
 
-        .play-btn {
-            width: 42px;
-            height: 42px;
+        .social-link {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: var(--accent);
-            border: none;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 1px solid rgba(255,255,255,0.15);
             transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .play-btn:hover {
-            background: #ff5a2b;
-            transform: scale(1.05);
-        }
-
-        .play-btn svg {
-            width: 16px;
-            height: 16px;
-            fill: var(--white);
-            margin-left: 3px;
-        }
-
-        .play-btn.playing svg {
-            margin-left: 0;
-        }
-
-        .track-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .track-title {
-            font-family: 'Cormorant', serif;
-            font-size: 1rem;
-            font-weight: 600;
+            text-decoration: none;
             color: var(--white);
-            margin-bottom: 0.15rem;
         }
 
-        .track-artist {
-            font-size: 0.7rem;
-            color: var(--gray);
+        .social-link svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
+        }
+
+        .social-link.active:hover {
+            border-color: var(--accent);
+            background: rgba(243,65,79,0.1);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .social-link.locked {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .social-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .progress-container {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .progress-bar {
-            flex: 1;
-            height: 4px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--accent);
-            width: 0%;
-            border-radius: 2px;
-            transition: width 0.1s linear;
-        }
-
-        .time {
-            font-size: 0.7rem;
             color: var(--gray);
-            font-variant-numeric: tabular-nums;
-            min-width: 32px;
-        }
-
-        @media (max-width: 600px) {
-            .audio-player {
-                padding: 1rem;
-            }
-
-            .play-btn {
-                width: 44px;
-                height: 44px;
-            }
-
-            .play-btn svg {
-                width: 18px;
-                height: 18px;
-            }
-
-            .track-title {
-                font-size: 1rem;
-            }
+            margin-bottom: 0.6rem;
         }
     </style>
 </head>
 <body>
     <div class="page">
         <div class="photo-side">
-            <img src="drozdz_zbyszek.jpeg" alt="Zbyszek Dróżdż">
+            <img src="WhatsApp Image 2026-03-30 at 17.04.12.jpeg" alt="Zbyszek Dróżdż — COŚ o miłości">
             <div class="photo-overlay"></div>
             <div class="photo-accent"></div>
         </div>
 
         <div class="content-side">
             <div class="content-inner">
-                <p class="label">Artysta · Muzyk</p>
+                <p class="label">Nowy singiel · Premiera</p>
                 
                 <h1><span>Zbyszek</span><br>Dróżdż</h1>
-                <p class="subtitle">Don Kichot</p>
+                <p class="subtitle">COŚ o miłości</p>
 
                 <div class="countdown-section">
-                    <p class="countdown-label">Konkurs trwa do 6 stycznia 2026</p>
+                    <p class="countdown-label">Do premiery singla pozostało</p>
                     <div class="countdown" id="countdown">
                         <div class="countdown-item">
                             <div class="countdown-number" id="days">00</div>
@@ -571,33 +508,27 @@
                     </div>
                 </div>
 
-                <!-- Audio Player -->
-                <div class="audio-player">
-                    <div class="player-header">
-                        <button class="play-btn" id="playBtn" aria-label="Odtwórz">
-                            <svg id="playIcon" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </button>
-                        <div class="track-info">
-                            <div class="track-title">Don Kichot</div>
-                            <div class="track-artist">Demo · 30 sek</div>
-                        </div>
-                    </div>
-                    <div class="progress-container">
-                        <span class="time" id="currentTime">0:00</span>
-                        <div class="progress-bar" id="progressBar">
-                            <div class="progress-fill" id="progressFill"></div>
-                        </div>
-                        <span class="time" id="duration">0:00</span>
-                    </div>
-                    <audio id="audio" src="zbyszek_demo.mp3" preload="metadata"></audio>
-                </div>
-
-                <div class="actions">
-                    <a href="regulamin.pdf" target="_blank" class="btn btn-primary">
-                        Regulamin konkursu →
+                <div class="social-links">
+                    <!-- Facebook — aktywny -->
+                    <a href="https://www.facebook.com/profile.php?id=61576794130350" target="_blank" rel="noopener" class="social-link active" title="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                     </a>
+                    <!-- Instagram — zablokowany -->
+                    <span class="social-link locked" title="Wkrótce">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--black)" stroke-width="2" stroke-linecap="round"/></svg>
+                    </span>
+                    <!-- Spotify — zablokowany -->
+                    <span class="social-link locked" title="Wkrótce">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-1 8 0M7 10.5c3-1.2 7-1.2 10 0M9 16.5c2-0.8 4-0.8 6 0" stroke="var(--black)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </span>
+                    <!-- YouTube — zablokowany -->
+                    <span class="social-link locked" title="Wkrótce">
+                        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--black)"/></svg>
+                    </span>
+                    <!-- TikTok — zablokowany -->
+                    <span class="social-link locked" title="Wkrótce">
+                        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+                    </span>
                 </div>
 
                 <div class="contact">
@@ -614,13 +545,14 @@
 
     <script>
         function updateCountdown() {
-            const end = new Date('2026-01-06T23:59:59').getTime();
+            const end = new Date('2026-04-23T00:00:00').getTime();
             const now = Date.now();
             const diff = end - now;
 
             if (diff < 0) {
                 document.getElementById('countdown').innerHTML = 
-                    '<p style="font-size: 1.5rem; color: var(--accent);">Konkurs zakończony</p>';
+                    '<p style="font-size: 1.5rem; color: var(--accent); font-family: \'Cormorant\', serif;">Już dostępny! ♪</p>';
+                document.querySelector('.countdown-label').textContent = 'Singiel jest już dostępny wszędzie';
                 return;
             }
 
@@ -632,64 +564,16 @@
             document.getElementById('days').textContent = d;
             document.getElementById('hours').textContent = h.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = s.toString().padStart(2, '0');
+
+            const secEl = document.getElementById('seconds');
+            secEl.textContent = s.toString().padStart(2, '0');
+            secEl.classList.remove('pulse');
+            void secEl.offsetWidth;
+            secEl.classList.add('pulse');
         }
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
-
-        // Audio Player
-        const audio = document.getElementById('audio');
-        const playBtn = document.getElementById('playBtn');
-        const playIcon = document.getElementById('playIcon');
-        const progressBar = document.getElementById('progressBar');
-        const progressFill = document.getElementById('progressFill');
-        const currentTimeEl = document.getElementById('currentTime');
-        const durationEl = document.getElementById('duration');
-
-        const playPath = 'M8 5v14l11-7z';
-        const pausePath = 'M6 19h4V5H6v14zm8-14v14h4V5h-4z';
-
-        function formatTime(sec) {
-            const m = Math.floor(sec / 60);
-            const s = Math.floor(sec % 60);
-            return m + ':' + s.toString().padStart(2, '0');
-        }
-
-        audio.addEventListener('loadedmetadata', () => {
-            durationEl.textContent = formatTime(audio.duration);
-        });
-
-        audio.addEventListener('timeupdate', () => {
-            const pct = (audio.currentTime / audio.duration) * 100;
-            progressFill.style.width = pct + '%';
-            currentTimeEl.textContent = formatTime(audio.currentTime);
-        });
-
-        audio.addEventListener('ended', () => {
-            playIcon.innerHTML = '<path d="' + playPath + '"/>';
-            playBtn.classList.remove('playing');
-            progressFill.style.width = '0%';
-            currentTimeEl.textContent = '0:00';
-        });
-
-        playBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playIcon.innerHTML = '<path d="' + pausePath + '"/>';
-                playBtn.classList.add('playing');
-            } else {
-                audio.pause();
-                playIcon.innerHTML = '<path d="' + playPath + '"/>';
-                playBtn.classList.remove('playing');
-            }
-        });
-
-        progressBar.addEventListener('click', (e) => {
-            const rect = progressBar.getBoundingClientRect();
-            const pct = (e.clientX - rect.left) / rect.width;
-            audio.currentTime = pct * audio.duration;
-        });
     </script>
 </body>
 </html>
