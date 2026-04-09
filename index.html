@@ -172,11 +172,22 @@
         }
 
         .icon-facebook  { background: #1877f2; }
-        .icon-instagram { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .icon-instagram { background: #fff; }
         .icon-spotify   { background: #1db954; }
         .icon-youtube   { background: #ff0000; }
         .icon-tiktok    { background: #010101; border: 1px solid rgba(255,255,255,0.12); }
         .icon-web       { background: rgba(255,255,255,0.08); }
+        .icon-mail      { background: #2563eb; }
+
+        @keyframes shimmer {
+            0%   { box-shadow: 0 0 0px rgba(243,65,79,0); border-color: rgba(255,255,255,0.08); }
+            50%  { box-shadow: 0 0 18px rgba(243,65,79,0.25); border-color: rgba(243,65,79,0.4); }
+            100% { box-shadow: 0 0 0px rgba(243,65,79,0); border-color: rgba(255,255,255,0.08); }
+        }
+
+        .link-item.glow {
+            animation: shimmer 2.5s ease-in-out infinite;
+        }
 
         .link-icon.icon-thumb {
             width: 38px;
@@ -304,7 +315,7 @@
         <!-- Instagram — zablokowany -->
         <div class="link-item locked">
             <div class="link-icon icon-instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="0.8" fill="white" stroke="none"/></svg>
+                <img src="instagram.png" alt="Instagram" style="width:70%;height:70%;object-fit:contain;">
             </div>
             <div class="link-text">
                 <div class="link-title">Instagram</div>
@@ -355,8 +366,8 @@
 
     <div class="links">
         <a href="mailto:Izabela.frechowicz@gmail.com" class="link-item">
-            <div class="link-icon icon-web">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div class="link-icon" style="background:#fff;">
+                <img src="read.png" alt="Kontakt" style="width:70%;height:70%;object-fit:contain;">
             </div>
             <div class="link-text">
                 <div class="link-title">Napisz do nas</div>
@@ -369,9 +380,9 @@
     <p class="section-label">Strona główna</p>
 
     <div class="links">
-        <a href="https://zbyszekdrozdz.pl" class="link-item">
-            <div class="link-icon icon-thumb">
-                <img src="../cover.jpeg" alt="zbyszekdrozdz.pl">
+        <a href="https://zbyszekdrozdz.pl" class="link-item glow">
+            <div class="link-icon" style="background:#fff;">
+                <img src="wave-sound.png" alt="Strona główna" style="width:100%;height:100%;object-fit:contain;border-radius:10px;">
             </div>
             <div class="link-text">
                 <div class="link-title">zbyszekdrozdz.pl</div>
