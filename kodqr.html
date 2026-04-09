@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zbyszek Dróżdż — Linki</title>
+
+    <meta name="description" content="Zbyszek Dróżdż — muzyk, artysta. Wszystkie linki w jednym miejscu.">
+    <meta name="author" content="Zbyszek Dróżdż">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zbyszekdrozdz.pl/kodqr">
+    <meta property="og:title" content="Zbyszek Dróżdż — Linki">
+    <meta property="og:description" content="Muzyk, artysta. Wszystkie linki w jednym miejscu.">
+    <meta property="og:image" content="https://zbyszekdrozdz.pl/cover.jpeg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zbyszek Dróżdż — Linki">
+    <meta name="twitter:description" content="Muzyk, artysta. Wszystkie linki w jednym miejscu.">
+    <meta name="twitter:image" content="https://zbyszekdrozdz.pl/cover.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0d0d0d;
+            --white: #fafafa;
+            --accent: #f3414f;
+            --gray: #888;
+            --card: rgba(255,255,255,0.04);
+            --card-border: rgba(255,255,255,0.08);
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.25rem 4rem;
+        }
+
+        /* Avatar / okładka */
+        .avatar {
+            width: 108px;
+            height: 108px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid var(--card-border);
+            margin-bottom: 1.25rem;
+            animation: fadeDown 0.6s ease-out both;
+        }
+
+        /* Nazwa */
+        .name {
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.1;
+            text-align: center;
+            animation: fadeDown 0.6s 0.1s ease-out both;
+        }
+
+        .name span {
+            font-style: italic;
+            color: var(--gray);
+        }
+
+        .tagline {
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: 0.5rem;
+            margin-bottom: 2.25rem;
+            text-align: center;
+            animation: fadeDown 0.6s 0.15s ease-out both;
+        }
+
+        /* Sekcja */
+        .section-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+        }
+
+        /* Linki */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 2rem;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--white);
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03));
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .link-item:hover::before {
+            opacity: 1;
+        }
+
+        .link-item:hover {
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .link-item.locked {
+            opacity: 0.35;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .link-item.accent-border:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(243,65,79,0.15);
+        }
+
+        .link-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .link-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+
+        .icon-facebook  { background: #1877f2; }
+        .icon-instagram { background: #fff; }
+        .icon-spotify   { background: #1db954; }
+        .icon-youtube   { background: #ff0000; }
+        .icon-tiktok    { background: #010101; border: 1px solid rgba(255,255,255,0.12); }
+        .icon-web       { background: rgba(255,255,255,0.08); }
+        .icon-mail      { background: #2563eb; }
+
+        @keyframes shimmer {
+            0%   { box-shadow: 0 0 0px rgba(243,65,79,0); border-color: rgba(255,255,255,0.08); }
+            50%  { box-shadow: 0 0 18px rgba(243,65,79,0.25); border-color: rgba(243,65,79,0.4); }
+            100% { box-shadow: 0 0 0px rgba(243,65,79,0); border-color: rgba(255,255,255,0.08); }
+        }
+
+        .link-item.glow {
+            animation: shimmer 2.5s ease-in-out infinite;
+        }
+
+        .link-icon.icon-thumb {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .link-icon.icon-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .link-text {
+            flex: 1;
+        }
+
+        .link-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .link-sub {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 0.15rem;
+        }
+
+        .link-arrow {
+            color: var(--gray);
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .link-item:hover .link-arrow {
+            transform: translateX(3px);
+            color: var(--white);
+        }
+
+        .locked-badge {
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 0.2rem 0.5rem;
+            color: var(--gray);
+            flex-shrink: 0;
+        }
+
+        /* Animacje wejścia */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .links .link-item {
+            animation: fadeUp 0.5s ease-out both;
+        }
+        .links .link-item:nth-child(1) { animation-delay: 0.2s; }
+        .links .link-item:nth-child(2) { animation-delay: 0.28s; }
+        .links .link-item:nth-child(3) { animation-delay: 0.36s; }
+        .links .link-item:nth-child(4) { animation-delay: 0.44s; }
+        .links .link-item:nth-child(5) { animation-delay: 0.52s; }
+
+        .section-label {
+            animation: fadeUp 0.5s 0.18s ease-out both;
+        }
+
+        /* Stopka */
+        .footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.2);
+            text-align: center;
+            animation: fadeUp 0.5s 0.6s ease-out both;
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.2);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+
+    <img src="cover.jpeg" alt="Zbyszek Dróżdż" class="avatar">
+
+    <h1 class="name"><span>Zbyszek</span> Dróżdż</h1>
+    <p class="tagline">Nowy singiel · COŚ o miłości</p>
+
+    <p class="section-label">Znajdź mnie tutaj</p>
+
+    <div class="links">
+
+        <!-- Facebook — aktywny -->
+        <a href="https://www.facebook.com/profile.php?id=61576794130350" target="_blank" rel="noopener" class="link-item accent-border">
+            <div class="link-icon icon-facebook">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <div class="link-text">
+                <div class="link-title">Facebook</div>
+                <div class="link-sub">Zbyszek Dróżdż</div>
+            </div>
+            <span class="link-arrow">→</span>
+        </a>
+
+        <!-- Instagram — zablokowany -->
+        <div class="link-item locked">
+            <div class="link-icon icon-instagram">
+                <img src="instagram.png" alt="Instagram" style="width:70%;height:70%;object-fit:contain;">
+            </div>
+            <div class="link-text">
+                <div class="link-title">Instagram</div>
+                <div class="link-sub">Wkrótce</div>
+            </div>
+            <span class="locked-badge">Wkrótce</span>
+        </div>
+
+        <!-- Spotify — zablokowany -->
+        <div class="link-item locked">
+            <div class="link-icon icon-spotify">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-1 8 0M7 10.5c3-1.2 7-1.2 10 0M9 16.5c2-0.8 4-0.8 6 0" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+            </div>
+            <div class="link-text">
+                <div class="link-title">Spotify</div>
+                <div class="link-sub">Premiera 23 kwietnia 2026</div>
+            </div>
+            <span class="locked-badge">Wkrótce</span>
+        </div>
+
+        <!-- YouTube — zablokowany -->
+        <div class="link-item locked">
+            <div class="link-icon icon-youtube">
+                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#ff0000"/></svg>
+            </div>
+            <div class="link-text">
+                <div class="link-title">YouTube</div>
+                <div class="link-sub">Premiera 23 kwietnia 2026</div>
+            </div>
+            <span class="locked-badge">Wkrótce</span>
+        </div>
+
+        <!-- TikTok — zablokowany -->
+        <div class="link-item locked">
+            <div class="link-icon icon-tiktok">
+                <svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            </div>
+            <div class="link-text">
+                <div class="link-title">TikTok</div>
+                <div class="link-sub">Wkrótce</div>
+            </div>
+            <span class="locked-badge">Wkrótce</span>
+        </div>
+
+    </div>
+
+    <p class="section-label">Kontakt</p>
+
+    <div class="links">
+        <a href="mailto:Izabela.frechowicz@gmail.com" class="link-item">
+            <div class="link-icon" style="background:#fff;">
+                <img src="read.png" alt="Kontakt" style="width:70%;height:70%;object-fit:contain;">
+            </div>
+            <div class="link-text">
+                <div class="link-title">Napisz do nas</div>
+                <div class="link-sub">Izabela.frechowicz@gmail.com</div>
+            </div>
+            <span class="link-arrow">→</span>
+        </a>
+    </div>
+
+    <p class="section-label">Strona główna</p>
+
+    <div class="links">
+        <a href="https://zbyszekdrozdz.pl" class="link-item glow">
+            <div class="link-icon" style="background:#fff;">
+                <img src="wave-sound.png" alt="Strona główna" style="width:100%;height:100%;object-fit:contain;border-radius:10px;">
+            </div>
+            <div class="link-text">
+                <div class="link-title">zbyszekdrozdz.pl</div>
+                <div class="link-sub">Strona oficjalna</div>
+            </div>
+            <span class="link-arrow">→</span>
+        </a>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Zbyszek Dróżdż · <a href="https://zbyszekdrozdz.pl">zbyszekdrozdz.pl</a>
+    </div>
+
+</body>
+</html>

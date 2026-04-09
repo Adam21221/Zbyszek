@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zbyszek Dróżdż — Linki</title>
-
-    <meta name="description" content="Zbyszek Dróżdż — muzyk, artysta. Wszystkie linki w jednym miejscu.">
+    <title>Zbyszek Dróżdż — COŚ o miłości</title>
+    
+    <!-- Meta tagi -->
+    <meta name="description" content="Zbyszek Dróżdż - artysta, muzyk. Nowy singiel COŚ o miłości. Premiera 23 kwietnia 2026.">
     <meta name="author" content="Zbyszek Dróżdż">
-
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://zbyszekdrozdz.pl/kodqr">
-    <meta property="og:title" content="Zbyszek Dróżdż — Linki">
-    <meta property="og:description" content="Muzyk, artysta. Wszystkie linki w jednym miejscu.">
+    <meta property="og:url" content="https://zbyszekdrozdz.pl/">
+    <meta property="og:title" content="Zbyszek Dróżdż — COŚ o miłości">
+    <meta property="og:description" content="Nowy singiel. Premiera 23 kwietnia 2026.">
     <meta property="og:image" content="https://zbyszekdrozdz.pl/cover.jpeg">
-
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:site_name" content="Zbyszek Dróżdż">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Zbyszek Dróżdż — Linki">
-    <meta name="twitter:description" content="Muzyk, artysta. Wszystkie linki w jednym miejscu.">
+    <meta name="twitter:url" content="https://zbyszekdrozdz.pl/">
+    <meta name="twitter:title" content="Zbyszek Dróżdż — COŚ o miłości">
+    <meta name="twitter:description" content="Nowy singiel. Premiera 23 kwietnia 2026.">
     <meta name="twitter:image" content="https://zbyszekdrozdz.pl/cover.jpeg">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
     <style>
         * {
             margin: 0;
@@ -35,8 +43,6 @@
             --white: #fafafa;
             --accent: #f3414f;
             --gray: #888;
-            --card: rgba(255,255,255,0.04);
-            --card-border: rgba(255,255,255,0.08);
         }
 
         body {
@@ -44,357 +50,535 @@
             background: var(--black);
             color: var(--white);
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Grid layout */
+        .page {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        /* Left side - Photo */
+        .photo-side {
+            position: relative;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, var(--black), transparent);
+            pointer-events: none;
+        }
+
+        .photo-accent {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* Right side - Content */
+        .content-side {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 3rem 1.25rem 4rem;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
         }
 
-        /* Avatar / okładka */
-        .avatar {
-            width: 108px;
-            height: 108px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center top;
-            border: 2px solid var(--card-border);
-            margin-bottom: 1.25rem;
-            animation: fadeDown 0.6s ease-out both;
+        .content-inner {
+            max-width: 420px;
         }
 
-        /* Nazwa */
-        .name {
+        /* Typography */
+        .label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
             font-family: 'Cormorant', Georgia, serif;
-            font-size: 2rem;
+            font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 600;
             line-height: 1.1;
-            text-align: center;
-            animation: fadeDown 0.6s 0.1s ease-out both;
+            margin-bottom: 0.5rem;
         }
 
-        .name span {
+        h1 span {
             font-style: italic;
             color: var(--gray);
         }
 
-        .tagline {
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-top: 0.5rem;
-            margin-bottom: 2.25rem;
-            text-align: center;
-            animation: fadeDown 0.6s 0.15s ease-out both;
+        .subtitle {
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 3rem;
         }
 
-        /* Sekcja */
-        .section-label {
-            font-size: 0.65rem;
-            letter-spacing: 0.25em;
+        /* Countdown */
+        .countdown-section {
+            margin-bottom: 3rem;
+        }
+
+        .countdown-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .countdown-item {
+            text-align: left;
+        }
+
+        .countdown-number {
+            font-family: 'Cormorant', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--white);
+        }
+
+        .countdown-unit {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--gray);
-            margin-bottom: 0.75rem;
-            text-align: center;
-            max-width: 420px;
-            width: 100%;
+            margin-top: 0.25rem;
         }
 
-        /* Linki */
-        .links {
+        /* Buttons */
+        .actions {
             display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-            width: 100%;
-            max-width: 420px;
-            margin-bottom: 2rem;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
-        .link-item {
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.75rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #ff5a2b;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Contact */
+        .contact {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-email {
+            font-family: 'Cormorant', serif;
+            font-size: 1.1rem;
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--accent);
+        }
+
+        /* Vertical text */
+        .vertical-text {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            transform-origin: center;
+            font-size: 0.65rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .page {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+            }
+
+            .photo-side img {
+                height: auto;
+                max-height: 80vw;
+            }
+
+            .content-side {
+                padding: 2.5rem 2rem 3rem;
+            }
+
+            .vertical-text {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .subtitle {
+                margin-bottom: 2rem;
+            }
+
+            .countdown {
+                gap: 1.5rem;
+            }
+
+            .countdown-number {
+                font-size: 2.8rem;
+            }
+
+            .countdown-section {
+                margin-bottom: 2rem;
+            }
+
+            .actions {
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .photo-side img {
+                max-height: 100vw;
+            }
+
+            .photo-accent {
+                top: 1rem;
+                left: 1rem;
+                width: 50px;
+            }
+
+            .content-side {
+                padding: 2rem 1.5rem 2.5rem;
+            }
+
+            .label {
+                font-size: 0.65rem;
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+
+            .countdown {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.75rem;
+                background: rgba(255,255,255,0.03);
+                padding: 1.25rem 1rem;
+                border-radius: 8px;
+                border: 1px solid rgba(255,255,255,0.06);
+            }
+
+            .countdown-item {
+                text-align: center;
+            }
+
+            .countdown-number {
+                font-size: 1.75rem;
+            }
+
+            .countdown-unit {
+                font-size: 0.6rem;
+                margin-top: 0.15rem;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                justify-content: center;
+                padding: 1.1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .contact {
+                padding-top: 1.5rem;
+            }
+
+            .contact-email {
+                font-size: 0.95rem;
+                word-break: break-all;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-inner > * {
+            animation: fadeUp 0.8s ease-out backwards;
+        }
+
+        .label { animation-delay: 0.1s; }
+        h1 { animation-delay: 0.2s; }
+        .subtitle { animation-delay: 0.3s; }
+        .countdown-section { animation-delay: 0.4s; }
+        .social-links { animation-delay: 0.5s; }
+        .contact { animation-delay: 0.6s; }
+
+        /* Pulse animation on seconds */
+        @keyframes pulse {
+            0%   { transform: scale(1); }
+            30%  { transform: scale(1.12); color: var(--accent); }
+            100% { transform: scale(1); }
+        }
+
+        .countdown-number.pulse {
+            animation: pulse 0.4s ease-out;
+        }
+
+        /* Social links */
+        .social-links {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem 1.25rem;
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s ease;
             text-decoration: none;
             color: var(--white);
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .link-item::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03));
-            opacity: 0;
-            transition: opacity 0.25s ease;
+        .social-link svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
         }
 
-        .link-item:hover::before {
-            opacity: 1;
-        }
-
-        .link-item:hover {
-            border-color: rgba(255,255,255,0.2);
+        .social-link.active:hover {
+            border-color: var(--accent);
+            background: rgba(243,65,79,0.1);
+            color: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
         }
 
-        .link-item.locked {
-            opacity: 0.35;
+        .social-link.locked {
+            opacity: 0.3;
             cursor: not-allowed;
             pointer-events: none;
         }
 
-        .link-item.accent-border:hover {
-            border-color: var(--accent);
-            box-shadow: 0 8px 24px rgba(243,65,79,0.15);
-        }
-
-        .link-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .link-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--white);
-        }
-
-        .icon-facebook  { background: #1877f2; }
-        .icon-instagram { background: #fff; }
-        .icon-spotify   { background: #1db954; }
-        .icon-youtube   { background: #ff0000; }
-        .icon-tiktok    { background: #010101; border: 1px solid rgba(255,255,255,0.12); }
-        .icon-web       { background: rgba(255,255,255,0.08); }
-        .icon-mail      { background: #2563eb; }
-
-        @keyframes shimmer {
-            0%   { box-shadow: 0 0 0px rgba(243,65,79,0); border-color: rgba(255,255,255,0.08); }
-            50%  { box-shadow: 0 0 18px rgba(243,65,79,0.25); border-color: rgba(243,65,79,0.4); }
-            100% { box-shadow: 0 0 0px rgba(243,65,79,0); border-color: rgba(255,255,255,0.08); }
-        }
-
-        .link-item.glow {
-            animation: shimmer 2.5s ease-in-out infinite;
-        }
-
-        .link-icon.icon-thumb {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            overflow: hidden;
-            padding: 0;
-        }
-
-        .link-icon.icon-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-        }
-
-        .link-text {
-            flex: 1;
-        }
-
-        .link-title {
-            font-size: 0.95rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        .link-sub {
-            font-size: 0.75rem;
-            color: var(--gray);
-            margin-top: 0.15rem;
-        }
-
-        .link-arrow {
-            color: var(--gray);
-            font-size: 1rem;
-            flex-shrink: 0;
-            transition: transform 0.2s ease, color 0.2s ease;
-        }
-
-        .link-item:hover .link-arrow {
-            transform: translateX(3px);
-            color: var(--white);
-        }
-
-        .locked-badge {
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
+        .social-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 4px;
-            padding: 0.2rem 0.5rem;
             color: var(--gray);
-            flex-shrink: 0;
-        }
-
-        /* Animacje wejścia */
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-16px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .links .link-item {
-            animation: fadeUp 0.5s ease-out both;
-        }
-        .links .link-item:nth-child(1) { animation-delay: 0.2s; }
-        .links .link-item:nth-child(2) { animation-delay: 0.28s; }
-        .links .link-item:nth-child(3) { animation-delay: 0.36s; }
-        .links .link-item:nth-child(4) { animation-delay: 0.44s; }
-        .links .link-item:nth-child(5) { animation-delay: 0.52s; }
-
-        .section-label {
-            animation: fadeUp 0.5s 0.18s ease-out both;
-        }
-
-        /* Stopka */
-        .footer {
-            margin-top: auto;
-            padding-top: 2rem;
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.2);
-            text-align: center;
-            animation: fadeUp 0.5s 0.6s ease-out both;
-        }
-
-        .footer a {
-            color: rgba(255,255,255,0.2);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: var(--gray);
+            margin-bottom: 0.6rem;
         }
     </style>
 </head>
 <body>
-
-    <img src="../cover.jpeg" alt="Zbyszek Dróżdż" class="avatar">
-
-    <h1 class="name"><span>Zbyszek</span> Dróżdż</h1>
-    <p class="tagline">Nowy singiel · COŚ o miłości</p>
-
-    <p class="section-label">Znajdź mnie tutaj</p>
-
-    <div class="links">
-
-        <!-- Facebook — aktywny -->
-        <a href="https://www.facebook.com/profile.php?id=61576794130350" target="_blank" rel="noopener" class="link-item accent-border">
-            <div class="link-icon icon-facebook">
-                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </div>
-            <div class="link-text">
-                <div class="link-title">Facebook</div>
-                <div class="link-sub">Zbyszek Dróżdż</div>
-            </div>
-            <span class="link-arrow">→</span>
-        </a>
-
-        <!-- Instagram — zablokowany -->
-        <div class="link-item locked">
-            <div class="link-icon icon-instagram">
-                <img src="instagram.png" alt="Instagram" style="width:70%;height:70%;object-fit:contain;">
-            </div>
-            <div class="link-text">
-                <div class="link-title">Instagram</div>
-                <div class="link-sub">Wkrótce</div>
-            </div>
-            <span class="locked-badge">Wkrótce</span>
+    <div class="page">
+        <div class="photo-side">
+            <img src="cover.jpeg" alt="Zbyszek Dróżdż — COŚ o miłości">
+            <div class="photo-overlay"></div>
+            <div class="photo-accent"></div>
         </div>
 
-        <!-- Spotify — zablokowany -->
-        <div class="link-item locked">
-            <div class="link-icon icon-spotify">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-1 8 0M7 10.5c3-1.2 7-1.2 10 0M9 16.5c2-0.8 4-0.8 6 0" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        <div class="content-side">
+            <div class="content-inner">
+                <p class="label">Nowy singiel · Premiera</p>
+                
+                <h1><span>Zbyszek</span><br>Dróżdż</h1>
+                <p class="subtitle">COŚ o miłości</p>
+
+                <div class="countdown-section">
+                    <p class="countdown-label">Do premiery singla pozostało</p>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-unit">dni</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-unit">godz</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-unit">min</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-unit">sek</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <!-- Facebook — aktywny -->
+                    <a href="https://www.facebook.com/profile.php?id=61576794130350" target="_blank" rel="noopener" class="social-link active" title="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <!-- Instagram — zablokowany -->
+                    <span class="social-link locked" title="Wkrótce">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--black)" stroke-width="2" stroke-linecap="round"/></svg>
+                    </span>
+                    <!-- Spotify — zablokowany -->
+                    <span class="social-link locked" title="Wkrótce">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-1 8 0M7 10.5c3-1.2 7-1.2 10 0M9 16.5c2-0.8 4-0.8 6 0" stroke="var(--black)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </span>
+                    <!-- YouTube — zablokowany -->
+                    <span class="social-link locked" title="Wkrótce">
+                        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--black)"/></svg>
+                    </span>
+                    <!-- TikTok — zablokowany -->
+                    <span class="social-link locked" title="Wkrótce">
+                        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+                    </span>
+                </div>
+
+                <div class="contact">
+                    <p class="contact-label">Kontakt</p>
+                    <a href="mailto:zbyszekdonkichot@gmail.com" class="contact-email">
+                        zbyszekdonkichot@gmail.com
+                    </a>
+                </div>
             </div>
-            <div class="link-text">
-                <div class="link-title">Spotify</div>
-                <div class="link-sub">Premiera 23 kwietnia 2026</div>
-            </div>
-            <span class="locked-badge">Wkrótce</span>
+
+            <span class="vertical-text">Muzyka · Pasja · Sztuka</span>
         </div>
-
-        <!-- YouTube — zablokowany -->
-        <div class="link-item locked">
-            <div class="link-icon icon-youtube">
-                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#ff0000"/></svg>
-            </div>
-            <div class="link-text">
-                <div class="link-title">YouTube</div>
-                <div class="link-sub">Premiera 23 kwietnia 2026</div>
-            </div>
-            <span class="locked-badge">Wkrótce</span>
-        </div>
-
-        <!-- TikTok — zablokowany -->
-        <div class="link-item locked">
-            <div class="link-icon icon-tiktok">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
-            </div>
-            <div class="link-text">
-                <div class="link-title">TikTok</div>
-                <div class="link-sub">Wkrótce</div>
-            </div>
-            <span class="locked-badge">Wkrótce</span>
-        </div>
-
     </div>
 
-    <p class="section-label">Kontakt</p>
+    <script>
+        function updateCountdown() {
+            const end = new Date('2026-04-23T00:00:00').getTime();
+            const now = Date.now();
+            const diff = end - now;
 
-    <div class="links">
-        <a href="mailto:Izabela.frechowicz@gmail.com" class="link-item">
-            <div class="link-icon" style="background:#fff;">
-                <img src="read.png" alt="Kontakt" style="width:70%;height:70%;object-fit:contain;">
-            </div>
-            <div class="link-text">
-                <div class="link-title">Napisz do nas</div>
-                <div class="link-sub">Izabela.frechowicz@gmail.com</div>
-            </div>
-            <span class="link-arrow">→</span>
-        </a>
-    </div>
+            if (diff < 0) {
+                document.getElementById('countdown').innerHTML = 
+                    '<p style="font-size: 1.5rem; color: var(--accent); font-family: \'Cormorant\', serif;">Już dostępny! ♪</p>';
+                document.querySelector('.countdown-label').textContent = 'Singiel jest już dostępny wszędzie';
+                return;
+            }
 
-    <p class="section-label">Strona główna</p>
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-    <div class="links">
-        <a href="https://zbyszekdrozdz.pl" class="link-item glow">
-            <div class="link-icon" style="background:#fff;">
-                <img src="wave-sound.png" alt="Strona główna" style="width:100%;height:100%;object-fit:contain;border-radius:10px;">
-            </div>
-            <div class="link-text">
-                <div class="link-title">zbyszekdrozdz.pl</div>
-                <div class="link-sub">Strona oficjalna</div>
-            </div>
-            <span class="link-arrow">→</span>
-        </a>
-    </div>
+            document.getElementById('days').textContent = d;
+            document.getElementById('hours').textContent = h.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
 
-    <div class="footer">
-        &copy; 2026 Zbyszek Dróżdż · <a href="https://zbyszekdrozdz.pl">zbyszekdrozdz.pl</a>
-    </div>
+            const secEl = document.getElementById('seconds');
+            secEl.textContent = s.toString().padStart(2, '0');
+            secEl.classList.remove('pulse');
+            void secEl.offsetWidth;
+            secEl.classList.add('pulse');
+        }
 
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
