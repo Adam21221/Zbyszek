@@ -178,6 +178,22 @@
         .icon-tiktok    { background: #010101; border: 1px solid rgba(255,255,255,0.12); }
         .icon-web       { background: rgba(255,255,255,0.08); }
 
+        .link-icon.icon-thumb {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .link-icon.icon-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
         .link-text {
             flex: 1;
         }
@@ -288,7 +304,7 @@
         <!-- Instagram — zablokowany -->
         <div class="link-item locked">
             <div class="link-icon icon-instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="0.8" fill="white" stroke="none"/></svg>
             </div>
             <div class="link-text">
                 <div class="link-title">Instagram</div>
@@ -335,12 +351,27 @@
 
     </div>
 
+    <p class="section-label">Kontakt</p>
+
+    <div class="links">
+        <a href="mailto:Izabela.frechowicz@gmail.com" class="link-item">
+            <div class="link-icon icon-web">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="link-text">
+                <div class="link-title">Napisz do nas</div>
+                <div class="link-sub">Izabela.frechowicz@gmail.com</div>
+            </div>
+            <span class="link-arrow">→</span>
+        </a>
+    </div>
+
     <p class="section-label">Strona główna</p>
 
     <div class="links">
         <a href="https://zbyszekdrozdz.pl" class="link-item">
-            <div class="link-icon icon-web">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12" stroke="white" stroke-width="2"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="white" stroke-width="2"/></svg>
+            <div class="link-icon icon-thumb">
+                <img src="../cover.jpeg" alt="zbyszekdrozdz.pl">
             </div>
             <div class="link-text">
                 <div class="link-title">zbyszekdrozdz.pl</div>
