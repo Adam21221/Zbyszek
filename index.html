@@ -413,7 +413,8 @@
         h1 { animation-delay: 0.2s; }
         .subtitle { animation-delay: 0.3s; }
         .countdown-section { animation-delay: 0.4s; }
-        .social-links { animation-delay: 0.5s; }
+        .video-section { animation-delay: 0.5s; }
+        .social-links { animation-delay: 0.55s; }
         .contact { animation-delay: 0.6s; }
 
         /* Pulse animation on seconds */
@@ -467,6 +468,37 @@
             pointer-events: none;
         }
 
+        /* Video */
+        .video-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .video-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .social-label {
             font-size: 0.65rem;
             letter-spacing: 0.2em;
@@ -510,6 +542,18 @@
                             <div class="countdown-number" id="seconds">00</div>
                             <div class="countdown-unit">sek</div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <p class="video-label">Teledysk</p>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/sDPfxMYtOgg?rel=0&color=white"
+                            title="Zbyszek Dróżdż — COŚ o miłości (Official Music Video)"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
 
