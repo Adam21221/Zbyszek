@@ -479,69 +479,134 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--gray);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.85rem;
         }
 
-        .streaming-btn {
+        .streaming-cta {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
-            padding: 1rem 1.25rem;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
+            padding: 1.1rem 1.4rem;
+            background: linear-gradient(135deg, rgba(243,65,79,0.12), rgba(243,65,79,0.03));
+            border: 1px solid rgba(243,65,79,0.35);
+            border-radius: 12px;
             text-decoration: none;
             color: var(--white);
-            margin-bottom: 0.75rem;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .streaming-btn:hover {
-            background: rgba(255,255,255,0.07);
-            border-color: rgba(255,255,255,0.25);
+        .streaming-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .streaming-cta:hover::before {
+            left: 100%;
+        }
+
+        .streaming-cta:hover {
+            border-color: var(--accent);
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(243,65,79,0.18);
         }
 
-        .streaming-btn-left {
+        .streaming-cta-text {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.9rem;
+            min-width: 0;
         }
 
-        .streaming-btn-title {
-            font-size: 0.9rem;
+        .streaming-cta-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .streaming-cta-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+            margin-left: 3px;
+        }
+
+        .streaming-cta-title {
+            font-size: 0.95rem;
             font-weight: 500;
+            line-height: 1.25;
         }
 
-        .streaming-btn-sub {
+        .streaming-cta-sub {
             font-size: 0.7rem;
             color: var(--gray);
+            margin-top: 0.15rem;
         }
 
-        .streaming-platforms {
+        .streaming-cta-arrow {
+            color: var(--accent);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .streaming-cta:hover .streaming-cta-arrow {
+            transform: translateX(4px);
+        }
+
+        /* Logos row */
+        .streaming-logos {
             display: flex;
-            gap: 0.5rem;
+            align-items: center;
             flex-wrap: wrap;
-            margin-top: 0.5rem;
+            gap: 0.5rem 1.25rem;
+            margin-top: 0.9rem;
+            padding: 0 0.25rem;
         }
 
-        .platform-badge {
-            font-size: 0.6rem;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.6rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--gray);
-            white-space: nowrap;
+        .platform-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: rgba(255,255,255,0.5);
+            transition: color 0.2s ease;
         }
 
-        .platform-badge.spotify  { border-color: rgba(29,185,84,0.4);  color: #1db954; }
-        .platform-badge.apple    { border-color: rgba(250,92,124,0.4);  color: #fa5c7c; }
-        .platform-badge.youtube  { border-color: rgba(255,0,0,0.4);     color: #ff4444; }
-        .platform-badge.tidal    { border-color: rgba(255,255,255,0.2); color: #ccc; }
-        .platform-badge.amazon   { border-color: rgba(255,165,0,0.4);   color: #ffaa00; }
-        .platform-badge.deezer   { border-color: rgba(163,9,255,0.4);   color: #a309ff; }
+        .streaming-cta:hover ~ .streaming-logos .platform-logo {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .platform-logo svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            fill: currentColor;
+        }
+
+        @media (max-width: 500px) {
+            .streaming-logos {
+                gap: 0.5rem 0.9rem;
+            }
+            .platform-logo {
+                font-size: 0.68rem;
+            }
+        }
 
         /* Video */
         .video-section {
@@ -621,31 +686,41 @@
                 </div>
 
                 <div class="streaming-section">
-                    <p class="streaming-label">Słuchaj teraz</p>
-                    <a href="https://nextmusic.ffm.to/cosomilosci" target="_blank" rel="noopener" class="streaming-btn">
-                        <div class="streaming-btn-left">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                                <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-                                <path d="M10 8l6 4-6 4V8z" fill="white"/>
-                            </svg>
+                    <p class="streaming-label">Posłuchaj singla</p>
+                    <a href="https://nextmusic.ffm.to/cosomilosci" target="_blank" rel="noopener" class="streaming-cta">
+                        <div class="streaming-cta-text">
+                            <div class="streaming-cta-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                             <div>
-                                <div class="streaming-btn-title">COŚ o miłości</div>
-                                <div class="streaming-btn-sub">Zbyszek Dróżdż · wybierz serwis</div>
+                                <div class="streaming-cta-title">Słuchaj teraz</div>
+                                <div class="streaming-cta-sub">Wybierz swój serwis muzyczny</div>
                             </div>
                         </div>
-                        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;">
-                            <div class="streaming-platforms">
-                                <span class="platform-badge spotify">Spotify</span>
-                                <span class="platform-badge apple">Apple Music</span>
-                                <span class="platform-badge youtube">YouTube</span>
-                            </div>
-                            <div class="streaming-platforms">
-                                <span class="platform-badge tidal">Tidal</span>
-                                <span class="platform-badge amazon">Amazon</span>
-                                <span class="platform-badge deezer">Deezer</span>
-                            </div>
-                        </div>
+                        <span class="streaming-cta-arrow">→</span>
                     </a>
+                    <div class="streaming-logos">
+                        <span class="platform-logo" title="Spotify">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.33-.66.48-.96.24-2.76-1.68-6.24-2.04-10.32-1.08-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.44-.96 8.28-.6 11.34 1.26.3.18.42.66.3.96zm1.44-3.3c-.3.36-.78.48-1.14.24-3.18-1.92-8.04-2.52-11.76-1.38-.48.12-.96-.12-1.08-.6-.12-.48.12-.96.6-1.08 4.26-1.26 9.6-.6 13.26 1.62.3.18.48.72.12 1.2zm.12-3.36C15.24 8.46 8.82 8.22 5.4 9.3c-.54.18-1.14-.18-1.32-.72-.18-.54.18-1.14.72-1.32 3.96-1.2 10.98-1.02 15.18 1.56.48.3.66.96.36 1.44-.3.42-.96.6-1.44.3z"/></svg>
+                            Spotify
+                        </span>
+                        <span class="platform-logo" title="Apple Music">
+                            <svg viewBox="0 0 24 24"><path d="M23.994 6.124c0-.738-.065-1.475-.24-2.19-.317-1.31-1.062-2.31-2.18-3.043C21.003.517 20.373.285 19.703.164c-.517-.093-1.038-.135-1.564-.15-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.526-2.305 1.468-2.782 2.83-.188.537-.298 1.094-.354 1.66-.032.325-.05.651-.054.98-.004.06-.014.117-.02.173V18c.006.054.017.113.02.174.027.508.07 1.014.169 1.513.266 1.342.967 2.44 2.09 3.29.734.556 1.57.898 2.47 1.042.34.054.682.082 1.025.082h12.01c.32-.008.64-.02.96-.082.97-.16 1.86-.52 2.613-1.14.963-.783 1.574-1.78 1.833-3.002.14-.65.182-1.308.2-1.97.005-.055.015-.11.02-.165V6.125c.003-.055.013-.11.013-.164 0-.055-.008-.109-.013-.164 0-.055.008-.11.013-.165zm-4.11 8.225c-.04.63-.29 1.17-.79 1.585-.41.34-.89.51-1.43.52-.17 0-.33-.02-.49-.05-.98-.2-1.57-.95-1.5-1.93.06-.85.48-1.53 1.19-1.99.21-.14.44-.23.69-.26l2.33-.5V6.34c-.03-.02-.08-.02-.12-.01-1.67.35-3.35.7-5.02 1.07-.15.03-.28.13-.28.33 0 2.01 0 4.02-.01 6.03 0 .25-.05.49-.14.72-.29.78-.85 1.24-1.66 1.39-.3.06-.6.06-.9.06-.67-.01-1.18-.3-1.57-.85-.33-.47-.47-.99-.41-1.56.06-.55.28-1.02.7-1.37.37-.31.81-.47 1.28-.53.54-.07 1.08-.11 1.62-.16.04 0 .08-.01.12-.02V8.53c-.01-.05-.03-.07-.08-.06-.54.11-1.07.22-1.61.34-.85.18-1.69.36-2.54.55-.38.08-.76.17-1.14.26-.06.01-.08.04-.07.1v7.43c0 .18.01.36-.02.54-.06.51-.29.93-.71 1.26-.36.29-.79.43-1.25.47-.8.07-1.5-.24-1.97-.88-.34-.47-.47-1-.39-1.58.08-.57.33-1.04.79-1.38.34-.25.72-.39 1.12-.46.39-.07.79-.11 1.19-.17.04-.01.08-.01.12-.02v-.06c0-2.42 0-4.85.01-7.27 0-.24.06-.48.17-.69.2-.39.51-.62.91-.75.31-.1.63-.15.96-.21.95-.17 1.9-.33 2.85-.5 1.1-.2 2.2-.4 3.3-.59.86-.14 1.72-.28 2.58-.42.4-.07.8-.12 1.2-.16.05-.01.09-.01.14-.02h.17c.17.02.33.06.48.14.31.17.47.44.49.78 0 .04.01.07.01.1v8.56c-.01.18-.01.35-.01.52z"/></svg>
+                            Apple Music
+                        </span>
+                        <span class="platform-logo" title="YouTube Music">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 19.2c-3.98 0-7.2-3.22-7.2-7.2s3.22-7.2 7.2-7.2 7.2 3.22 7.2 7.2-3.22 7.2-7.2 7.2zm0-13.2c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1.5 9V9l5 3-5 3z"/></svg>
+                            YouTube Music
+                        </span>
+                        <span class="platform-logo" title="Tidal">
+                            <svg viewBox="0 0 24 24"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996 4.004 12l4.004-4.004L12.012 12l-4.004 4.004 4.004 4.004 4.004-4.004L12.012 12l4.004-4.004 4.004 4.004L24 7.996l-4.004-4.004-3.98 4.004z"/></svg>
+                            Tidal
+                        </span>
+                        <span class="platform-logo" title="Deezer">
+                            <svg viewBox="0 0 24 24"><path d="M18.81 4.16h5.02v2.943h-5.02zm0 4.25h5.02v2.944h-5.02zm-6.255 0h5.02v2.944h-5.02zm-6.27 0h5.02v2.944h-5.02zm12.525 4.24h5.02v2.944h-5.02zm-6.255 0h5.02v2.944h-5.02zm-6.27 0h5.02v2.944h-5.02zM.015 12.65h5.02v2.944H.015zm18.795 4.25h5.02v2.94h-5.02zm-6.255 0h5.02v2.94h-5.02zm-6.27 0h5.02v2.94h-5.02zM.015 16.9h5.02v2.94H.015z"/></svg>
+                            Deezer
+                        </span>
+                    </div>
                 </div>
 
                 <div class="video-section">
