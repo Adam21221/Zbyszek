@@ -413,6 +413,7 @@
         h1 { animation-delay: 0.2s; }
         .subtitle { animation-delay: 0.3s; }
         .countdown-section { animation-delay: 0.4s; }
+        .streaming-section { animation-delay: 0.45s; }
         .video-section { animation-delay: 0.5s; }
         .social-links { animation-delay: 0.55s; }
         .contact { animation-delay: 0.6s; }
@@ -467,6 +468,80 @@
             cursor: not-allowed;
             pointer-events: none;
         }
+
+        /* Streaming */
+        .streaming-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .streaming-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .streaming-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .streaming-btn:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        .streaming-btn-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .streaming-btn-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .streaming-btn-sub {
+            font-size: 0.7rem;
+            color: var(--gray);
+        }
+
+        .streaming-platforms {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .platform-badge {
+            font-size: 0.6rem;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        .platform-badge.spotify  { border-color: rgba(29,185,84,0.4);  color: #1db954; }
+        .platform-badge.apple    { border-color: rgba(250,92,124,0.4);  color: #fa5c7c; }
+        .platform-badge.youtube  { border-color: rgba(255,0,0,0.4);     color: #ff4444; }
+        .platform-badge.tidal    { border-color: rgba(255,255,255,0.2); color: #ccc; }
+        .platform-badge.amazon   { border-color: rgba(255,165,0,0.4);   color: #ffaa00; }
+        .platform-badge.deezer   { border-color: rgba(163,9,255,0.4);   color: #a309ff; }
 
         /* Video */
         .video-section {
@@ -543,6 +618,34 @@
                             <div class="countdown-unit">sek</div>
                         </div>
                     </div>
+                </div>
+
+                <div class="streaming-section">
+                    <p class="streaming-label">Słuchaj teraz</p>
+                    <a href="https://nextmusic.ffm.to/cosomilosci" target="_blank" rel="noopener" class="streaming-btn">
+                        <div class="streaming-btn-left">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                                <path d="M10 8l6 4-6 4V8z" fill="white"/>
+                            </svg>
+                            <div>
+                                <div class="streaming-btn-title">COŚ o miłości</div>
+                                <div class="streaming-btn-sub">Zbyszek Dróżdż · wybierz serwis</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;">
+                            <div class="streaming-platforms">
+                                <span class="platform-badge spotify">Spotify</span>
+                                <span class="platform-badge apple">Apple Music</span>
+                                <span class="platform-badge youtube">YouTube</span>
+                            </div>
+                            <div class="streaming-platforms">
+                                <span class="platform-badge tidal">Tidal</span>
+                                <span class="platform-badge amazon">Amazon</span>
+                                <span class="platform-badge deezer">Deezer</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="video-section">
