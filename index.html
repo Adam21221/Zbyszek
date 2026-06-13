@@ -43,6 +43,12 @@
             --white: #fafafa;
             --accent: #f3414f;
             --gray: #888;
+            --nav-h: 60px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-h);
         }
 
         body {
@@ -51,6 +57,71 @@
             color: var(--white);
             min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        /* Top nav — pasek wyboru */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-h);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            background: rgba(13,13,13,0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .nav-brand {
+            font-family: 'Cormorant', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .nav-brand span {
+            font-style: italic;
+            color: var(--gray);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nav-links a {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray);
+            text-decoration: none;
+            padding: 0.5rem 0.85rem;
+            border-radius: 20px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .nav-links a.nav-cta {
+            color: var(--white);
+            background: var(--accent);
+        }
+
+        .nav-links a.nav-cta:hover {
+            background: #ff5a2b;
         }
 
         /* Grid layout */
@@ -63,8 +134,8 @@
         /* Left side - Photo */
         .photo-side {
             position: sticky;
-            top: 0;
-            height: 100vh;
+            top: var(--nav-h);
+            height: calc(100vh - var(--nav-h));
             background: var(--black);
             display: flex;
             align-items: center;
@@ -104,7 +175,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            padding: 4rem 4rem 5rem;
+            padding: calc(var(--nav-h) + 3rem) 4rem 5rem;
             position: relative;
             min-height: 100vh;
         }
@@ -252,6 +323,365 @@
             color: var(--accent);
         }
 
+        /* Bio section */
+        .bio {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 6rem 2rem 7rem;
+        }
+
+        .bio-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .bio-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .bio-title {
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 600;
+            line-height: 1.1;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .bio-lead {
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.5;
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .bio h3 {
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 2.75rem 0 1rem;
+            line-height: 1.2;
+        }
+
+        .bio p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: rgba(250,250,250,0.78);
+            margin-bottom: 1.15rem;
+        }
+
+        .bio ul {
+            list-style: none;
+            margin: 0 0 1.15rem;
+            padding: 0;
+        }
+
+        .bio ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(250,250,250,0.78);
+            margin-bottom: 0.65rem;
+        }
+
+        .bio ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .bio-figure {
+            margin: 2.5rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.4);
+            cursor: pointer;
+        }
+
+        .bio-figure img {
+            width: 100%;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .bio-figure:hover img {
+            transform: scale(1.03);
+        }
+
+        .bio-figure.float-right {
+            float: right;
+            width: 42%;
+            margin: 0.4rem 0 1.5rem 2rem;
+        }
+
+        .bio-figure.float-left {
+            float: left;
+            width: 42%;
+            margin: 0.4rem 2rem 1.5rem 0;
+        }
+
+        .bio-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+            margin: 2.5rem 0;
+        }
+
+        .bio-duo .bio-figure {
+            margin: 0;
+        }
+
+        .bio-duo .bio-figure img {
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+        }
+
+        @media (max-width: 600px) {
+            .bio-figure.float-right,
+            .bio-figure.float-left {
+                float: none;
+                width: 100%;
+                margin: 2rem 0;
+            }
+        }
+
+        .bio-quote {
+            clear: both;
+            margin: 3.5rem 0 0;
+            padding: 2rem 2.25rem;
+            border-left: 3px solid var(--accent);
+            background: rgba(243,65,79,0.06);
+            border-radius: 0 10px 10px 0;
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+            font-style: italic;
+            line-height: 1.45;
+            color: var(--white);
+        }
+
+        @media (max-width: 600px) {
+            .bio {
+                padding: 4rem 1.5rem 5rem;
+            }
+            .bio h3 {
+                font-size: 1.4rem;
+            }
+            .bio-quote {
+                padding: 1.5rem 1.5rem;
+            }
+        }
+
+        /* Gallery */
+        .gallery {
+            background: var(--black);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 6rem 2rem 7rem;
+        }
+
+        .gallery-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .gallery-title {
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 600;
+            line-height: 1.1;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #1a1a1a;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease, filter 0.4s ease;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(243,65,79,0);
+            transition: background 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(243,65,79,0.12);
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                padding: 4rem 1.5rem 5rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(8,8,8,0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 92vw;
+            max-height: 88vh;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.75rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .lightbox-prev { left: 1.25rem; }
+        .lightbox-next { right: 1.25rem; }
+
+        @media (max-width: 600px) {
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            .lightbox-prev { left: 0.5rem; }
+            .lightbox-next { right: 0.5rem; }
+        }
+
+        /* Footer */
+        .site-footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .site-footer a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: var(--accent);
+        }
+
         /* Vertical text */
         .vertical-text {
             position: absolute;
@@ -324,6 +754,24 @@
 
         /* Mobile */
         @media (max-width: 600px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+            .nav-brand {
+                font-size: 1rem;
+            }
+            .nav-links {
+                gap: 0.1rem;
+            }
+            .nav-links a {
+                padding: 0.45rem 0.5rem;
+                font-size: 0.62rem;
+                letter-spacing: 0.06em;
+            }
+            .nav-links a.nav-cta {
+                padding: 0.45rem 0.7rem;
+            }
+
             .photo-side img {
                 max-height: 100vw;
             }
@@ -401,6 +849,14 @@
 
         /* Small phones */
         @media (max-width: 380px) {
+            .nav-brand {
+                display: none;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+            }
+
             h1 {
                 font-size: 1.9rem;
             }
@@ -666,7 +1122,18 @@
     </style>
 </head>
 <body>
-    <div class="page">
+    <nav class="navbar">
+        <a href="#start" class="nav-brand">Zbyszek <span>Dróżdż</span></a>
+        <div class="nav-links">
+            <a href="#start">Singiel</a>
+            <a href="#bio">Bio</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="https://nextmusic.ffm.to/cosomilosci" target="_blank" rel="noopener" class="nav-cta">Słuchaj</a>
+        </div>
+    </nav>
+
+    <div class="page" id="start">
         <div class="photo-side">
             <img src="cover.jpeg" alt="Zbyszek Dróżdż — COŚ o miłości">
             <div class="photo-overlay"></div>
@@ -767,7 +1234,7 @@
                     </a>
                 </div>
 
-                <div class="contact">
+                <div class="contact" id="kontakt">
                     <p class="contact-label">Kontakt</p>
                     <a href="mailto:zbyszekdonkichot@gmail.com" class="contact-email">
                         zbyszekdonkichot@gmail.com
@@ -778,6 +1245,137 @@
             <span class="vertical-text">Muzyka · Pasja · Sztuka</span>
         </div>
     </div>
+
+    <section class="bio" id="bio">
+        <div class="bio-inner">
+            <p class="bio-label">O mnie</p>
+            <h2 class="bio-title">Zbyszek Dróżdż</h2>
+            <p class="bio-lead">
+                Chłopak z Pomorza, punkowiec, przedsiębiorca i samorządowiec.
+                Ale przede wszystkim – facet, który ma o czym śpiewać.
+            </p>
+
+            <p>
+                Moja droga nie była prosta. Dorastałem w małym miasteczku na Pomorzu,
+                w wielodzietnej rodzinie, gdzie rzeczywistość rzadko rozpieszczała.
+                Życiowego sprytu i logiki uczyłem się na podwórku i z map geograficznych,
+                a nadmiar energii uwalniałem w sporcie. Szybko jednak odkryłem, że moim
+                prawdziwym wentylem bezpieczeństwa jest scena.
+            </p>
+            <p>
+                Jako wokalista punkrockowego zespołu wykrzykiwałem swoje emocje tak głośno,
+                że publiczność legendarnego festiwalu w Jarocinie nagrodziła nas swoją
+                najważniejszą nagrodą. To był pierwszy dowód na to, że prawda
+                i autentyczność zawsze się obronią.
+            </p>
+
+            <div class="bio-duo">
+                <figure class="bio-figure"><img src="ZD_zdjecia/foto-02.jpeg" alt="Zbyszek Dróżdż" loading="lazy"></figure>
+                <figure class="bio-figure"><img src="ZD_zdjecia/foto-05.jpeg" alt="Zbyszek Dróżdż" loading="lazy"></figure>
+            </div>
+
+            <h3>Droga przez teatr, gwiazdy i Europę</h3>
+            <p>
+                Głód świata pognał mnie dalej. Szukając swojego miejsca na ziemi,
+                wędrowałem po Polsce i Europie. Moje ścieżki były kręte, ale fascynujące:
+            </p>
+            <ul>
+                <li>Studiowałem medycynę naturalną i sztuki mantyczne.</li>
+                <li>Przez dwa lata zgłębiałem tajemnice ludzkiego losu pod okiem wybitnego astrologa, Leona Zawadzkiego.</li>
+                <li>Dotknąłem magii teatru, pracując we Włoszech jako główny asystent Reny Mireckiej – legendarnej aktorki Teatru Laboratorium Jerzego Grotowskiego.</li>
+            </ul>
+            <p>
+                Te doświadczenia nauczyły mnie patrzeć głębiej pod podszewkę świata
+                i rozumieć ludzką naturę.
+            </p>
+
+            <figure class="bio-figure"><img src="ZD_zdjecia/foto-08.jpeg" alt="Zbyszek Dróżdż" loading="lazy"></figure>
+
+            <h3>Biznes, port i dojrzałość</h3>
+            <p>
+                Po powrocie do kraju artystyczną wrażliwość musiałem połączyć z twardą
+                rzeczywistością. Wszedłem w świat biznesu, rozwijając własną działalność
+                jako przedsiębiorca. To tam uczyłem się odpowiedzialności, zarządzania
+                i budowania czegoś od zera na własny rachunek – tym razem bez punkowego
+                chaosu, a z biznesową dyscypliną.
+            </p>
+            <p>
+                W międzyczasie poznałem kobietę swojego życia – lekarkę psychiatrę.
+                Jesteśmy razem już ponad 20 lat, wychowując czwórkę wspaniałych nastolatków.
+                To w domu, w podróżach z bliskimi i w intymnej, dojrzałej bliskości z żoną
+                znalazłem swój najbezpieczniejszy port.
+            </p>
+            <p>
+                Nigdy jednak nie porzuciłem muzyki. Przez lata pisałem teksty
+                i komponowałem – najpierw dla mojego zespołu Jamaya Bigi, a potem do szuflady.
+                Życiowe doświadczenie i stabilizacja pozwoliły mi pójść krok dalej.
+                Zaangażowałem się w politykę lokalną. Dzisiaj łączę perspektywę
+                przedsiębiorcy i artysty z odpowiedzialnością wiceprzewodniczącego
+                rady powiatu.
+            </p>
+
+            <div class="bio-duo">
+                <figure class="bio-figure"><img src="ZD_zdjecia/foto-12.jpeg" alt="Zbyszek Dróżdż" loading="lazy"></figure>
+                <figure class="bio-figure"><img src="ZD_zdjecia/foto-15.jpeg" alt="Zbyszek Dróżdż" loading="lazy"></figure>
+            </div>
+
+            <h3>Dzisiaj: Muzyczne podsumowanie 30 lat</h3>
+            <p>
+                Mój najnowszy album to esencja tej trzydziestoletniej podróży. Wraz
+                z zespołem znakomitych, profesjonalnych muzyków zamknąłem w dźwiękach
+                swoje błędy, zachwyty, biznesowe lekcje i życiową mądrość.
+            </p>
+            <p>
+                To płyta o człowieku, który nie boi się żyć na własnych warunkach.
+                Promujący ją singiel to opowieść o dojrzałej miłości – takiej, która
+                przetrwała burze, zna smak codzienności, ale wciąż potrafi płonąć czystym,
+                intymnym ogniem.
+            </p>
+
+            <div class="bio-duo">
+                <figure class="bio-figure"><img src="ZD_zdjecia/foto-17.jpeg" alt="Zbyszek Dróżdż" loading="lazy"></figure>
+                <figure class="bio-figure"><img src="ZD_zdjecia/foto-19.jpeg" alt="Zbyszek Dróżdż" loading="lazy"></figure>
+            </div>
+
+            <blockquote class="bio-quote">
+                „Nie musisz wybierać między buntem, biznesem a spokojem.
+                Możesz mieć to wszystko, jeśli tylko jesteś wierny sobie”.
+            </blockquote>
+        </div>
+    </section>
+
+    <section class="gallery" id="galeria">
+        <div class="gallery-inner">
+            <p class="gallery-label">Galeria</p>
+            <h2 class="gallery-title">Zdjęcia</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-01.jpeg" alt="Zbyszek Dróżdż — zdjęcie 1" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-03.jpeg" alt="Zbyszek Dróżdż — zdjęcie 3" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-04.jpeg" alt="Zbyszek Dróżdż — zdjęcie 4" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-06.jpeg" alt="Zbyszek Dróżdż — zdjęcie 6" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-07.jpeg" alt="Zbyszek Dróżdż — zdjęcie 7" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-09.jpeg" alt="Zbyszek Dróżdż — zdjęcie 9" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-10.jpeg" alt="Zbyszek Dróżdż — zdjęcie 10" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-11.jpeg" alt="Zbyszek Dróżdż — zdjęcie 11" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-13.jpeg" alt="Zbyszek Dróżdż — zdjęcie 13" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-14.jpeg" alt="Zbyszek Dróżdż — zdjęcie 14" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-16.jpeg" alt="Zbyszek Dróżdż — zdjęcie 16" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-18.jpeg" alt="Zbyszek Dróżdż — zdjęcie 18" loading="lazy"></div>
+                <div class="gallery-item"><img src="ZD_zdjecia/foto-20.jpeg" alt="Zbyszek Dróżdż — zdjęcie 20" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Zamknij">&times;</button>
+        <div class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Poprzednie">&#8249;</div>
+        <img src="" alt="" id="lightboxImg">
+        <div class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Następne">&#8250;</div>
+    </div>
+
+    <footer class="site-footer">
+        &copy; 2026 Zbyszek Dróżdż · <a href="https://zbyszekdrozdz.pl">zbyszekdrozdz.pl</a>
+    </footer>
 
     <script>
         function updateCountdown() {
@@ -808,6 +1406,53 @@
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        // Lightbox galeria
+        (function () {
+            const images = Array.from(document.querySelectorAll('#galleryGrid img, .bio-figure img'));
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const btnClose = document.getElementById('lightboxClose');
+            const btnPrev = document.getElementById('lightboxPrev');
+            const btnNext = document.getElementById('lightboxNext');
+            let current = 0;
+
+            function show(i) {
+                current = (i + images.length) % images.length;
+                lightboxImg.src = images[current].src;
+                lightboxImg.alt = images[current].alt;
+            }
+
+            function open(i) {
+                show(i);
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function close() {
+                lightbox.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            images.forEach((img, i) => {
+                img.parentElement.addEventListener('click', () => open(i));
+            });
+
+            btnClose.addEventListener('click', close);
+            btnNext.addEventListener('click', () => show(current + 1));
+            btnPrev.addEventListener('click', () => show(current - 1));
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) close();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('open')) return;
+                if (e.key === 'Escape') close();
+                if (e.key === 'ArrowRight') show(current + 1);
+                if (e.key === 'ArrowLeft') show(current - 1);
+            });
+        })();
     </script>
 </body>
 </html>
