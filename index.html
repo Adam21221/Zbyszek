@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zbyszek Dróżdż — COŚ o miłości</title>
+    <title>Zbyszek Dróżdż — JAK PTAK</title>
     
     <!-- Meta tagi -->
-    <meta name="description" content="Zbyszek Dróżdż - artysta, muzyk. Nowy singiel COŚ o miłości. Premiera 23 kwietnia 2026.">
+    <meta name="description" content="Zbyszek Dróżdż — nowy singiel JAK PTAK. Premiera 28 sierpnia 2026.">
     <meta name="author" content="Zbyszek Dróżdż">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zbyszekdrozdz.pl/">
-    <meta property="og:title" content="Zbyszek Dróżdż — COŚ o miłości">
-    <meta property="og:description" content="Nowy singiel. Premiera 23 kwietnia 2026.">
+    <meta property="og:title" content="Zbyszek Dróżdż — JAK PTAK">
+    <meta property="og:description" content="Nowy singiel. Premiera 28 sierpnia 2026.">
     <meta property="og:image" content="https://zbyszekdrozdz.pl/cover.jpeg">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="1200">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="2000">
     <meta property="og:locale" content="pl_PL">
     <meta property="og:site_name" content="Zbyszek Dróżdż">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://zbyszekdrozdz.pl/">
-    <meta name="twitter:title" content="Zbyszek Dróżdż — COŚ o miłości">
-    <meta name="twitter:description" content="Nowy singiel. Premiera 23 kwietnia 2026.">
+    <meta name="twitter:title" content="Zbyszek Dróżdż — JAK PTAK">
+    <meta name="twitter:description" content="Nowy singiel. Premiera 28 sierpnia 2026.">
     <meta name="twitter:image" content="https://zbyszekdrozdz.pl/cover.jpeg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -39,10 +39,11 @@
         }
 
         :root {
-            --black: #0d0d0d;
-            --white: #fafafa;
-            --accent: #f3414f;
-            --gray: #888;
+            --black: #07090c;
+            --white: #f4f6f8;
+            --accent: #00b4e8;
+            --hot: #e11d2a;
+            --gray: #8b9198;
             --nav-h: 60px;
         }
 
@@ -78,7 +79,7 @@
         }
 
         .nav-brand {
-            font-family: 'Cormorant', serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 1.15rem;
             font-weight: 600;
             color: var(--white);
@@ -121,7 +122,7 @@
         }
 
         .nav-links a.nav-cta:hover {
-            background: #ff5a2b;
+            background: #0099c9;
         }
 
         /* Grid layout */
@@ -152,13 +153,7 @@
         }
 
         .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(to top, var(--black), transparent);
-            pointer-events: none;
+            display: none;
         }
 
         .photo-accent {
@@ -197,22 +192,25 @@
         }
 
         h1 {
-            font-family: 'Cormorant', Georgia, serif;
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3.2rem, 8vw, 5.4rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
         }
 
         h1 span {
-            font-style: italic;
-            color: var(--gray);
+            color: var(--accent);
         }
 
         .subtitle {
-            font-family: 'Cormorant', Georgia, serif;
-            font-size: 1.5rem;
-            font-style: italic;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
             color: var(--gray);
             margin-bottom: 3rem;
         }
@@ -230,18 +228,23 @@
 
         .countdown {
             display: flex;
-            gap: 2rem;
+            gap: 0.7rem;
         }
 
         .countdown-item {
-            text-align: left;
+            text-align: center;
+            min-width: 4.6rem;
+            padding: 0.95rem 0.7rem 0.8rem;
+            background: rgba(0, 180, 232, 0.07);
+            border: 1px solid rgba(0, 180, 232, 0.28);
         }
 
         .countdown-number {
-            font-family: 'Cormorant', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 600;
             line-height: 1;
+            letter-spacing: 0.04em;
             color: var(--white);
         }
 
@@ -282,7 +285,7 @@
         }
 
         .btn-primary:hover {
-            background: #ff5a2b;
+            background: #0099c9;
             transform: translateY(-2px);
         }
 
@@ -312,7 +315,7 @@
         }
 
         .contact-email {
-            font-family: 'Cormorant', serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 1.1rem;
             color: var(--white);
             text-decoration: none;
@@ -346,7 +349,7 @@
         }
 
         .bio-title {
-            font-family: 'Cormorant', Georgia, serif;
+            font-family: 'Oswald', sans-serif;
             font-size: clamp(2.2rem, 5vw, 3.2rem);
             font-weight: 600;
             line-height: 1.1;
@@ -355,7 +358,7 @@
         }
 
         .bio-lead {
-            font-family: 'Cormorant', Georgia, serif;
+            font-family: 'Oswald', sans-serif;
             font-size: clamp(1.2rem, 2.4vw, 1.5rem);
             font-style: italic;
             color: var(--white);
@@ -366,7 +369,7 @@
         }
 
         .bio h3 {
-            font-family: 'Cormorant', Georgia, serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 1.6rem;
             font-weight: 600;
             color: var(--accent);
@@ -468,9 +471,9 @@
             margin: 3.5rem 0 0;
             padding: 2rem 2.25rem;
             border-left: 3px solid var(--accent);
-            background: rgba(243,65,79,0.06);
+            background: rgba(0,180,232,0.08);
             border-radius: 0 10px 10px 0;
-            font-family: 'Cormorant', Georgia, serif;
+            font-family: 'Oswald', sans-serif;
             font-size: clamp(1.3rem, 2.6vw, 1.7rem);
             font-style: italic;
             line-height: 1.45;
@@ -512,7 +515,7 @@
         }
 
         .gallery-title {
-            font-family: 'Cormorant', Georgia, serif;
+            font-family: 'Oswald', sans-serif;
             font-size: clamp(2.2rem, 5vw, 3.2rem);
             font-weight: 600;
             line-height: 1.1;
@@ -547,7 +550,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(243,65,79,0);
+            background: rgba(0,180,232,0);
             transition: background 0.3s ease;
         }
 
@@ -556,7 +559,7 @@
         }
 
         .gallery-item:hover::after {
-            background: rgba(243,65,79,0.12);
+            background: rgba(0,180,232,0.12);
         }
 
         @media (max-width: 900px) {
@@ -807,11 +810,12 @@
             .countdown {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                gap: 0.75rem;
-                background: rgba(255,255,255,0.03);
-                padding: 1.25rem 1rem;
-                border-radius: 8px;
-                border: 1px solid rgba(255,255,255,0.06);
+                gap: 0.45rem;
+            }
+
+            .countdown-item {
+                min-width: 0;
+                padding: 0.8rem 0.2rem 0.65rem;
             }
 
             .countdown-item {
@@ -887,6 +891,7 @@
         .subtitle { animation-delay: 0.3s; }
         .countdown-section { animation-delay: 0.4s; }
         .streaming-section { animation-delay: 0.45s; }
+        .prev-track { animation-delay: 0.48s; }
         .video-section { animation-delay: 0.5s; }
         .social-links { animation-delay: 0.55s; }
         .contact { animation-delay: 0.6s; }
@@ -894,7 +899,7 @@
         /* Pulse animation on seconds */
         @keyframes pulse {
             0%   { transform: scale(1); }
-            30%  { transform: scale(1.12); color: var(--accent); }
+            30%  { transform: scale(1.12); color: var(--hot); }
             100% { transform: scale(1); }
         }
 
@@ -931,7 +936,7 @@
 
         .social-link.active:hover {
             border-color: var(--accent);
-            background: rgba(243,65,79,0.1);
+            background: rgba(0,180,232,0.1);
             color: var(--accent);
             transform: translateY(-2px);
         }
@@ -961,8 +966,8 @@
             justify-content: space-between;
             gap: 1rem;
             padding: 1.1rem 1.4rem;
-            background: linear-gradient(135deg, rgba(243,65,79,0.12), rgba(243,65,79,0.03));
-            border: 1px solid rgba(243,65,79,0.35);
+            background: linear-gradient(135deg, rgba(0,180,232,0.14), rgba(0,180,232,0.03));
+            border: 1px solid rgba(0,180,232,0.35);
             border-radius: 12px;
             text-decoration: none;
             color: var(--white);
@@ -989,7 +994,7 @@
         .streaming-cta:hover {
             border-color: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(243,65,79,0.18);
+            box-shadow: 0 10px 30px rgba(0,180,232,0.18);
         }
 
         .streaming-cta-text {
@@ -1065,6 +1070,91 @@
             color: rgba(255,255,255,0.75);
         }
 
+        .coming-soon {
+            padding: 1.15rem 1.35rem;
+            background: rgba(0,180,232,0.07);
+            border: 1px dashed rgba(0,180,232,0.4);
+        }
+
+        .coming-soon-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .coming-soon-sub {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 0.35rem;
+            letter-spacing: 0.04em;
+        }
+
+        .prev-track {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.7rem;
+            margin-top: 1.25rem;
+            text-decoration: none;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .prev-track:hover {
+            border-color: rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-2px);
+        }
+
+        .prev-track img {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .prev-track > div {
+            min-width: 0;
+        }
+
+        .prev-track-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.2rem;
+        }
+
+        .prev-track-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .prev-track-sub {
+            font-size: 0.72rem;
+            color: var(--gray);
+            margin-top: 0.15rem;
+        }
+
+        .prev-track-arrow {
+            margin-left: auto;
+            color: var(--accent);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            padding-right: 0.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .prev-track:hover .prev-track-arrow {
+            transform: translateX(4px);
+        }
+
         .platform-logo svg {
             width: 14px;
             height: 14px;
@@ -1129,26 +1219,26 @@
             <a href="#bio">Bio</a>
             <a href="#galeria">Galeria</a>
             <a href="#kontakt">Kontakt</a>
-            <a href="https://nextmusic.ffm.to/cosomilosci" target="_blank" rel="noopener" class="nav-cta">Słuchaj</a>
+            <a href="#start" class="nav-cta">Premiera 28.08</a>
         </div>
     </nav>
 
     <div class="page" id="start">
         <div class="photo-side">
-            <img src="cover.jpeg" alt="Zbyszek Dróżdż — COŚ o miłości">
+            <img src="cover.jpeg" alt="Zbyszek Dróżdż — JAK PTAK">
             <div class="photo-overlay"></div>
             <div class="photo-accent"></div>
         </div>
 
         <div class="content-side">
             <div class="content-inner">
-                <p class="label">Nowy singiel · Premiera</p>
+                <p class="label">Nowy singiel · Premiera 28.08.2026</p>
                 
-                <h1><span>Zbyszek</span><br>Dróżdż</h1>
-                <p class="subtitle">COŚ o miłości</p>
+                <h1>Jak<br><span>Ptak</span></h1>
+                <p class="subtitle">Zbyszek Dróżdż</p>
 
                 <div class="countdown-section">
-                    <p class="countdown-label">Do premiery singla pozostało</p>
+                    <p class="countdown-label">Do premiery pozostało</p>
                     <div class="countdown" id="countdown">
                         <div class="countdown-item">
                             <div class="countdown-number" id="days">00</div>
@@ -1170,19 +1260,11 @@
                 </div>
 
                 <div class="streaming-section">
-                    <p class="streaming-label">Posłuchaj singla</p>
-                    <a href="https://nextmusic.ffm.to/cosomilosci" target="_blank" rel="noopener" class="streaming-cta">
-                        <div class="streaming-cta-text">
-                            <div class="streaming-cta-icon">
-                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                            <div>
-                                <div class="streaming-cta-title">Słuchaj teraz</div>
-                                <div class="streaming-cta-sub">Wybierz swój serwis muzyczny</div>
-                            </div>
-                        </div>
-                        <span class="streaming-cta-arrow">→</span>
-                    </a>
+                    <p class="streaming-label">Nowy singiel</p>
+                    <div class="coming-soon">
+                        <div class="coming-soon-title">Wkrótce na wszystkich platformach</div>
+                        <div class="coming-soon-sub">Premiera 28 sierpnia 2026 · Spotify, Apple Music, YouTube i inne</div>
+                    </div>
                     <div class="streaming-logos">
                         <span class="platform-logo" title="Spotify">
                             <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.33-.66.48-.96.24-2.76-1.68-6.24-2.04-10.32-1.08-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.44-.96 8.28-.6 11.34 1.26.3.18.42.66.3.96zm1.44-3.3c-.3.36-.78.48-1.14.24-3.18-1.92-8.04-2.52-11.76-1.38-.48.12-.96-.12-1.08-.6-.12-.48.12-.96.6-1.08 4.26-1.26 9.6-.6 13.26 1.62.3.18.48.72.12 1.2zm.12-3.36C15.24 8.46 8.82 8.22 5.4 9.3c-.54.18-1.14-.18-1.32-.72-.18-.54.18-1.14.72-1.32 3.96-1.2 10.98-1.02 15.18 1.56.48.3.66.96.36 1.44-.3.42-.96.6-1.44.3z"/></svg>
@@ -1205,10 +1287,19 @@
                             Deezer
                         </span>
                     </div>
+                    <a href="https://nextmusic.ffm.to/cosomilosci" target="_blank" rel="noopener" class="prev-track">
+                        <img src="cover-cos-o-milosci.jpeg" alt="COŚ o miłości">
+                        <div>
+                            <div class="prev-track-label">Poprzedni utwór</div>
+                            <div class="prev-track-title">COŚ o miłości</div>
+                            <div class="prev-track-sub">Słuchaj teraz</div>
+                        </div>
+                        <span class="prev-track-arrow">→</span>
+                    </a>
                 </div>
 
                 <div class="video-section">
-                    <p class="video-label">Teledysk</p>
+                    <p class="video-label">Poprzedni utwór · teledysk</p>
                     <div class="video-wrapper">
                         <iframe
                             src="https://www.youtube.com/embed/sDPfxMYtOgg?rel=0&color=white"
@@ -1379,7 +1470,7 @@
 
     <script>
         function updateCountdown() {
-            const end = new Date('2026-04-23T00:00:00').getTime();
+            const end = new Date('2026-08-28T00:00:00').getTime();
             const now = Date.now();
             const diff = end - now;
 
