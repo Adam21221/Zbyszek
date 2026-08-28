@@ -7,14 +7,14 @@
     <title>Zbyszek Dróżdż — JAK PTAK</title>
     
     <!-- Meta tagi -->
-    <meta name="description" content="Zbyszek Dróżdż — nowy singiel JAK PTAK. Premiera 28 sierpnia 2026.">
+    <meta name="description" content="Zbyszek Dróżdż — nowy singiel JAK PTAK. Już dostępny na Spotify, Apple Music, YouTube i innych platformach.">
     <meta name="author" content="Zbyszek Dróżdż">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zbyszekdrozdz.pl/">
     <meta property="og:title" content="Zbyszek Dróżdż — JAK PTAK">
-    <meta property="og:description" content="Nowy singiel. Premiera 28 sierpnia 2026.">
+    <meta property="og:description" content="Nowy singiel JAK PTAK — już dostępny na wszystkich platformach.">
     <meta property="og:image" content="https://zbyszekdrozdz.pl/cover.jpeg?v=jakptak">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1800">
@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://zbyszekdrozdz.pl/">
     <meta name="twitter:title" content="Zbyszek Dróżdż — JAK PTAK">
-    <meta name="twitter:description" content="Nowy singiel. Premiera 28 sierpnia 2026.">
+    <meta name="twitter:description" content="Nowy singiel JAK PTAK — już dostępny na wszystkich platformach.">
     <meta name="twitter:image" content="https://zbyszekdrozdz.pl/cover.jpeg?v=jakptak">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -214,47 +214,6 @@
             text-transform: uppercase;
             color: var(--gray);
             margin-bottom: 3rem;
-        }
-
-        /* Countdown */
-        .countdown-section {
-            margin-bottom: 3rem;
-        }
-
-        .countdown-label {
-            font-size: 0.85rem;
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-
-        .countdown {
-            display: flex;
-            gap: 0.7rem;
-        }
-
-        .countdown-item {
-            text-align: center;
-            min-width: 4.6rem;
-            padding: 0.95rem 0.7rem 0.8rem;
-            background: rgba(0, 180, 232, 0.07);
-            border: 1px solid rgba(0, 180, 232, 0.28);
-        }
-
-        .countdown-number {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3.2rem;
-            font-weight: 600;
-            line-height: 1;
-            letter-spacing: 0.04em;
-            color: var(--white);
-        }
-
-        .countdown-unit {
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gray);
-            margin-top: 0.25rem;
         }
 
         /* Buttons */
@@ -739,18 +698,6 @@
                 margin-bottom: 2rem;
             }
 
-            .countdown {
-                gap: 1.5rem;
-            }
-
-            .countdown-number {
-                font-size: 2.8rem;
-            }
-
-            .countdown-section {
-                margin-bottom: 2rem;
-            }
-
             .actions {
                 margin-bottom: 2rem;
             }
@@ -804,34 +751,6 @@
                 margin-bottom: 1.5rem;
             }
 
-            .countdown-label {
-                font-size: 0.8rem;
-            }
-
-            .countdown {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 0.45rem;
-            }
-
-            .countdown-item {
-                min-width: 0;
-                padding: 0.8rem 0.2rem 0.65rem;
-            }
-
-            .countdown-item {
-                text-align: center;
-            }
-
-            .countdown-number {
-                font-size: 1.75rem;
-            }
-
-            .countdown-unit {
-                font-size: 0.6rem;
-                margin-top: 0.15rem;
-            }
-
             .actions {
                 flex-direction: column;
             }
@@ -866,9 +785,6 @@
                 font-size: 1.9rem;
             }
 
-            .countdown-number {
-                font-size: 1.5rem;
-            }
         }
 
         /* Animation */
@@ -890,23 +806,11 @@
         .label { animation-delay: 0.1s; }
         h1 { animation-delay: 0.2s; }
         .subtitle { animation-delay: 0.3s; }
-        .countdown-section { animation-delay: 0.4s; }
         .streaming-section { animation-delay: 0.45s; }
         .prev-track { animation-delay: 0.48s; }
         .video-section { animation-delay: 0.5s; }
         .social-links { animation-delay: 0.55s; }
         .contact { animation-delay: 0.6s; }
-
-        /* Pulse animation on seconds */
-        @keyframes pulse {
-            0%   { transform: scale(1); }
-            30%  { transform: scale(1.12); color: var(--hot); }
-            100% { transform: scale(1); }
-        }
-
-        .countdown-number.pulse {
-            animation: pulse 0.4s ease-out;
-        }
 
         /* Social links */
         .social-links {
@@ -1071,27 +975,6 @@
             color: rgba(255,255,255,0.75);
         }
 
-        .coming-soon {
-            padding: 1.15rem 1.35rem;
-            background: rgba(0,180,232,0.07);
-            border: 1px dashed rgba(0,180,232,0.4);
-        }
-
-        .coming-soon-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .coming-soon-sub {
-            font-size: 0.75rem;
-            color: var(--gray);
-            margin-top: 0.35rem;
-            letter-spacing: 0.04em;
-        }
-
         .prev-track {
             display: flex;
             align-items: center;
@@ -1220,7 +1103,7 @@
             <a href="#bio">Bio</a>
             <a href="#galeria">Galeria</a>
             <a href="#kontakt">Kontakt</a>
-            <a href="#start" class="nav-cta">Premiera 28.08</a>
+            <a href="https://nextmusic.ffm.to/jakptak" target="_blank" rel="noopener" class="nav-cta">Słuchaj JAK PTAK</a>
         </div>
     </nav>
 
@@ -1233,39 +1116,25 @@
 
         <div class="content-side">
             <div class="content-inner">
-                <p class="label">Nowy singiel · Premiera 28.08.2026</p>
+                <p class="label">Nowy singiel · Już dostępny</p>
                 
                 <h1>Jak<br><span>Ptak</span></h1>
                 <p class="subtitle">Zbyszek Dróżdż</p>
 
-                <div class="countdown-section">
-                    <p class="countdown-label">Do premiery pozostało</p>
-                    <div class="countdown" id="countdown">
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="days">00</div>
-                            <div class="countdown-unit">dni</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="hours">00</div>
-                            <div class="countdown-unit">godz</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="minutes">00</div>
-                            <div class="countdown-unit">min</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="seconds">00</div>
-                            <div class="countdown-unit">sek</div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="streaming-section">
-                    <p class="streaming-label">Nowy singiel</p>
-                    <div class="coming-soon">
-                        <div class="coming-soon-title">Wkrótce na wszystkich platformach</div>
-                        <div class="coming-soon-sub">Premiera 28 sierpnia 2026 · Spotify, Apple Music, YouTube i inne</div>
-                    </div>
+                    <p class="streaming-label">Słuchaj teraz</p>
+                    <a href="https://nextmusic.ffm.to/jakptak" target="_blank" rel="noopener" class="streaming-cta">
+                        <div class="streaming-cta-text">
+                            <div class="streaming-cta-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div>
+                                <div class="streaming-cta-title">Słuchaj „Jak Ptak” teraz</div>
+                                <div class="streaming-cta-sub">Spotify · Apple Music · YouTube · Tidal i więcej</div>
+                            </div>
+                        </div>
+                        <span class="streaming-cta-arrow">→</span>
+                    </a>
                     <div class="streaming-logos">
                         <span class="platform-logo" title="Spotify">
                             <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.33-.66.48-.96.24-2.76-1.68-6.24-2.04-10.32-1.08-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.44-.96 8.28-.6 11.34 1.26.3.18.42.66.3.96zm1.44-3.3c-.3.36-.78.48-1.14.24-3.18-1.92-8.04-2.52-11.76-1.38-.48.12-.96-.12-1.08-.6-.12-.48.12-.96.6-1.08 4.26-1.26 9.6-.6 13.26 1.62.3.18.48.72.12 1.2zm.12-3.36C15.24 8.46 8.82 8.22 5.4 9.3c-.54.18-1.14-.18-1.32-.72-.18-.54.18-1.14.72-1.32 3.96-1.2 10.98-1.02 15.18 1.56.48.3.66.96.36 1.44-.3.42-.96.6-1.44.3z"/></svg>
@@ -1471,35 +1340,6 @@
     </footer>
 
     <script>
-        function updateCountdown() {
-            const end = new Date('2026-08-28T00:00:00').getTime();
-            const now = Date.now();
-            const diff = end - now;
-
-            if (diff < 0) {
-                document.querySelector('.countdown-section').style.display = 'none';
-                return;
-            }
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = d;
-            document.getElementById('hours').textContent = h.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
-
-            const secEl = document.getElementById('seconds');
-            secEl.textContent = s.toString().padStart(2, '0');
-            secEl.classList.remove('pulse');
-            void secEl.offsetWidth;
-            secEl.classList.add('pulse');
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
         // Lightbox galeria
         (function () {
             const images = Array.from(document.querySelectorAll('#galleryGrid img, .bio-figure img'));
